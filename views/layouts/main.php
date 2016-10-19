@@ -43,6 +43,10 @@ AppAsset::register($this);
     $test_item=[
         ['label' => 'First1/Index นี่คืออะไร', 'url' => ['/first1/index']]
     ];
+    
+    $setting_item=[
+        ['label' => 'สถานะคอมฯ', 'url' => ['/comstatus/index']]
+    ];
     echo Nav::widget([
         'encodeLabels' => false,
         'options' => ['class' => 'navbar-nav navbar-right'],
@@ -51,6 +55,7 @@ AppAsset::register($this);
             ['label' => 'ทดสอบ', 'items' => $test_item],
             ['label' => '<span class="glyphicon glyphicon-qrcode"></span> เกี่ยวไร', 'url' => ['/site/about']],
             ['label' => 'ติดต่อ', 'url' => ['/site/contact']],
+            ['label' => '<span class="glyphicon glyphicon-cog"></span> ตั้งค่า', 'items' => $setting_item],
             Yii::$app->user->isGuest ? (
                 ['label' => 'ล็อกคอ', 'url' => ['/site/login']]
             ) : (
