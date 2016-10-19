@@ -27,8 +27,8 @@ AppAsset::register($this);
 
     
 <div class="wrap">
-<div>
-    <img src="<?=  Yii::getAlias('@web')?>/img/asf_logo.png" class="img-responsive" alt="header">
+<div style="height:100px;background: url('<?=  Yii::getAlias('@web')?>/img/header.png') center no-repeat">
+    <!--<img src="<?=  Yii::getAlias('@web')?>/img/asf_logo.png" class="img-responsive" alt="header">-->
 </div>    
     <?php
     NavBar::begin([
@@ -39,11 +39,16 @@ AppAsset::register($this);
             'class' => 'navbar-inverse',
         ],
     ]);
+    
+    $test_item=[
+        ['label' => 'First1/Index นี่คืออะไร', 'url' => ['/first1/index']]
+    ];
     echo Nav::widget([
         'encodeLabels' => false,
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => '<span class="glyphicon glyphicon-home"></span> หน้าแรก', 'url' => ['/site/index']],
+            ['label' => 'ทดสอบ', 'items' => $test_item],
             ['label' => '<span class="glyphicon glyphicon-qrcode"></span> เกี่ยวไร', 'url' => ['/site/about']],
             ['label' => 'ติดต่อ', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest ? (
