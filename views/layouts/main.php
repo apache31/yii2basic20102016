@@ -40,20 +40,28 @@ AppAsset::register($this);
         ],
     ]);
     
-    $test_item=[
-        ['label' => 'First1/Index นี่คืออะไร', 'url' => ['/first1/index']]
+    $regis_item=[
+        ['label' => 'ทะเบียนคอมพิวเตอร์', 'url' => ['/com/index']]
+    ];
+    
+    $report_item=[
+        ['label' => 'ประเภทคอมพิวเตอร์', 'url' => ['/reportcomtype/index']],
+        ['label' => 'รายงานการซ่อมบำรุง', 'url' => ['/reportcomservice/index']],
+        ['label' => 'จำนวนครุภัณฑ์คอมพิวเตอร์ แยกตามประเภท', 'url' => ['/chartcom/index']]
     ];
     
     $setting_item=[
-        ['label' => 'สถานะคอมฯ', 'url' => ['/comstatus/index']]
+        ['label' => 'สถานะคอมฯ', 'url' => ['/comstatus/index']],
+        ['label' => 'ประเภทคอมพิวเตอร์', 'url' => ['/com-type']]
     ];
     echo Nav::widget([
         'encodeLabels' => false,
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => '<span class="glyphicon glyphicon-home"></span> หน้าแรก', 'url' => ['/site/index']],
-            ['label' => 'ทดสอบ', 'items' => $test_item],
-            ['label' => '<span class="glyphicon glyphicon-qrcode"></span> เกี่ยวไร', 'url' => ['/site/about']],
+            ['label' => 'นี่คืออะไร', 'url' => ['/first1/index']],
+            ['label' => 'ลงทะเบียน', 'items' => $regis_item],
+            ['label' => '<span class="glyphicon glyphicon-list-alt"></span> รายงาน', 'items' => $report_item],
             ['label' => 'ติดต่อ', 'url' => ['/site/contact']],
             ['label' => '<span class="glyphicon glyphicon-cog"></span> ตั้งค่า', 'items' => $setting_item],
             Yii::$app->user->isGuest ? (

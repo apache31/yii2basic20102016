@@ -2,12 +2,12 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'Yii2@Apache3 19102016';
+$this->title = 'Yii2@Apache3 20-10-2016';
 ?>
 <div class="site-index">
 
     <div class="jumbotron">
-        <h1>Congratulations!</h1>
+        <h1>Yii2 Basic 20-10-2016</h1>
 
         <p class="lead">You have successfully created your Yii-powered application.</p>
 
