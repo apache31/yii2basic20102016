@@ -27,7 +27,7 @@ AppAsset::register($this);
 
     
 <div class="wrap">
-<div style="height:100px;background: url('<?=  Yii::getAlias('@web')?>/img/header.png') center no-repeat">
+<div style="height:100px;background:#f5f5f5 url('<?=  Yii::getAlias('@web')?>/img/header.png') center no-repeat">
     <!--<img src="<?=  Yii::getAlias('@web')?>/img/asf_logo.png" class="img-responsive" alt="header">-->
 </div>    
     <?php

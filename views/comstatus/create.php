@@ -7,7 +7,7 @@ use yii\helpers\Html;
 /* @var $model app\models\ComStatus */
 
 $this->title = 'เพิ่มสถานะคอมพิวเตอร์';
-$this->params['breadcrumbs'][] = ['label' => 'Com Statuses', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'สถานะคอมพิวเตอร์', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="com-status-create">
