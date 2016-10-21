@@ -47,7 +47,9 @@ AppAsset::register($this);
     $report_item=[
         ['label' => 'ประเภทคอมพิวเตอร์', 'url' => ['/reportcomtype/index']],
         ['label' => 'รายงานการซ่อมบำรุง', 'url' => ['/reportcomservice/index']],
-        ['label' => 'จำนวนครุภัณฑ์คอมพิวเตอร์ แยกตามประเภท', 'url' => ['/chartcom/index']]
+        ['label' => 'จำนวนครุภัณฑ์คอมพิวเตอร์ แยกตามประเภท', 'url' => ['/chartcom/index']],
+        ['label' => 'จำนวนครุภัณฑ์คอมพิวเตอร์ แยกตามแผนก', 'url' => ['/chartbydepart/index']],
+        ['label' => 'ประเภทคอมพิวเตอร์ (PDF)', 'url' => ['/pdftest/index'], 'linkOptions' => ['target' => '_blank']]
     ];
     
     $setting_item=[
@@ -60,22 +62,34 @@ AppAsset::register($this);
         'items' => [
             ['label' => '<span class="glyphicon glyphicon-home"></span> หน้าแรก', 'url' => ['/site/index']],
             ['label' => 'นี่คืออะไร', 'url' => ['/first1/index']],
-            ['label' => 'ลงทะเบียน', 'items' => $regis_item],
+            ['label' => 'ลงทะเบียน', 'items' => $regis_item,'visible'=>Yii::$app->session->has('username')],
             ['label' => '<span class="glyphicon glyphicon-list-alt"></span> รายงาน', 'items' => $report_item],
             ['label' => 'ติดต่อ', 'url' => ['/site/contact']],
-            ['label' => '<span class="glyphicon glyphicon-cog"></span> ตั้งค่า', 'items' => $setting_item],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'ล็อกคอ', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post', ['class' => 'navbar-form'])
-                . Html::submitButton(
-                    'ถีบออก (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link']
-                )
-                . Html::endForm()
-                . '</li>'
-            )
+            ['label' => '<span class="glyphicon glyphicon-cog"></span> ตั้งค่า', 'items' => $setting_item,'visible'=>Yii::$app->session->has('username')],
+              !Yii::$app->session->get('username') ? ( 
+                    ['label' => 'Login', 'url' => ['/site/login']] 
+              ) : ( 
+                    '<li>' 
+                      . Html::beginForm(['/site/logout'], 'post', ['class' => 'navbar-form']) 
+                      . Html::submitButton(
+                              'Logout (' . Yii::$app->session->get('username') . ')', 
+                              ['class' => 'btn btn-link']
+                      ) 
+                      . Html::endForm() 
+                      . '</li>' 
+              )
+//            Yii::$app->user->isGuest ? (
+//                ['label' => 'ล็อกคอ', 'url' => ['/site/login']]
+//            ) : (
+//                '<li>'
+//                . Html::beginForm(['/site/logout'], 'post', ['class' => 'navbar-form'])
+//                . Html::submitButton(
+//                    'ถีบออก (' . Yii::$app->user->identity->username . ')',
+//                    ['class' => 'btn btn-link']
+//                )
+//                . Html::endForm()
+//                . '</li>'
+//            )
         ],
     ]);
     NavBar::end();

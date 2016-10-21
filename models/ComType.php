@@ -1,6 +1,7 @@
 <?php
 
 namespace app\models;
+use yii\helpers\ArrayHelper;
 
 use Yii;
 
@@ -33,6 +34,10 @@ class ComType extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+    public static function GetList() {
+        return ArrayHelper::map(self::find()->all(), 'com_type_id', 'com_type_name');
+    }
+    
     public function attributeLabels()
     {
         return [

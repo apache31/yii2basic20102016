@@ -6,12 +6,14 @@ $this->title = 'Yii2@Apache3 20-10-2016';
 ?>
 <div class="site-index">
 
+    <h2>Login as "<?= Yii::$app->session->get('userfullname') ?>"</h2>
+    
     <div class="jumbotron">
         <h1>Yii2 Basic 20-10-2016</h1>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
+        <p class="lead">... </p>
 
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
+        <p><a class="btn btn-lg btn-success" target="_blank" href="?r=gii">Gii code generators</a></p>
     </div>
 
     <div class="body-content">
